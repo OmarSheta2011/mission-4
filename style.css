@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  font-size: 62.5%;
+  --bk-clr-1: #74ebd5;
+  --bk-clr-2: #9face6;
+  --circle-bk-clr-1: #08aeea;
+  --circle-bk-clr-2: #2af598;
+
+  --positiong-value: -100px;
+}
+
+body {
+  font-size: 1.6rem;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(60deg, var(--bk-clr-1), var(--bk-clr-2));
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 36.8rem);
+  grid-template-rows: 1fr;
+  padding: 3rem;
+  gap: 3rem;
+  margin: auto 0;
+}
+
+.card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 40rem;
+  background-color: white;
+  gap: 4rem;
+  padding: 120px 10px 90px 10px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px 0px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in;
+}
+.call-to-action-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 15px 45px;
+  background-color: black;
+  color: white;
+  justify-self: center;
+  margin-top: auto;
+  cursor:pointer;
+}
+p {
+  text-align: center;
+  color: gray;
+}
+.card > * {
+  position: relative;
+  z-index: 1;
+  transition: 0.3s all ease;
+}
+
+.card::after {
+  content: attr(number);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 900;
+  color: white;
+  top: 0px;
+  right: 0px;
+  width: 100px;
+  height: 100px;
+}
+.gradient {
+  border-radius: 30%;
+  background-image: linear-gradient(
+    -15deg,
+    var(--circle-bk-clr-1),
+    var(--circle-bk-clr-2)
+  );
+  top: var(--positiong-value);
+  right: var(--positiong-value);
+  width: 200px;
+  height: 200px;
+}
+.gradient,
+.card::after {
+  position: absolute;
+  z-index: 0;
+  transition: 0.3s all ease;
+}
+
+.card:hover .gradient {
+  height: calc(100% + var(--positiong-value) * -1);
+  width: calc(100% + var(--positiong-value) * -1);
+  border-radius: 0;
+}
+.card:hover :where(p, h2) {
+  color: white;
+}
+.card:hover .call-to-action-btn {
+  color: black;
+  background-color: white;
+}
