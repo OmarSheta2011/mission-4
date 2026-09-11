@@ -32,6 +32,7 @@ body {
   padding: 3rem;
   gap: 3rem;
   margin: auto 0;
+  max-width: 1230px;
 }
 
 .card {
