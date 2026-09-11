@@ -64,10 +64,16 @@ body {
   justify-self: center;
   margin-top: auto;
   cursor: pointer;
+  font-size: 17px;
+}
+h2 {
+  font-weight: 700;
+  font-size: 30px;
 }
 p {
   text-align: center;
   color: gray;
+  font-size: 16px;
 }
 .card > * {
   position: relative;
